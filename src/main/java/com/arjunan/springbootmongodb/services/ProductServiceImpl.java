@@ -4,6 +4,7 @@ import com.arjunan.springbootmongodb.domain.Product;
 import com.arjunan.springbootmongodb.dto.ProductDto;
 import com.arjunan.springbootmongodb.mappers.ProductMapper;
 import com.arjunan.springbootmongodb.repositories.ProductRepository;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -40,5 +41,14 @@ public class ProductServiceImpl implements  ProductService{
     @Override
     public Product saveOrUpdate(Product product) {
         return productRepository.save(product);
+    }
+
+    /**
+     * @param id  product Id
+     * @return product
+     */
+    @Override
+    public Product getById(String id) {
+        return productRepository.findById(new ObjectId(id)).orElseThrow(() -> new IllegalArgumentException("product not found"));
     }
 }
