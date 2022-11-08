@@ -1,10 +1,13 @@
 package com.arjunan.springbootmongodb.controller;
 
+import com.arjunan.springbootmongodb.domain.Product;
 import com.arjunan.springbootmongodb.dto.ProductDto;
 import com.arjunan.springbootmongodb.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ProductController {
@@ -30,5 +33,17 @@ public class ProductController {
     public String saveProduct(Model model){
         model.addAttribute("productForm", new ProductDto());
         return "product/productForm";
+    }
+
+    @RequestMapping(value = "/product", method = RequestMethod.POST)
+    public String saveOrUpdateProduct(ProductDto productDto , BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+            return "product/productForm";
+        }
+
+        Product product = productService.saveOrUpdateProductForm(productDto);
+
+        return "redirect:/product/show/" + product.get_id();
     }
 }
