@@ -6,15 +6,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>create product</title>
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen"/>
+<!--    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"-->
+<!--          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"-->
+<!--          rel="stylesheet" media="screen"/>-->
 
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
-            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+<!--    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"-->
+<!--            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>-->
 
-    <link href="../../static/css/spring-core.css"
-          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+<!--    <link href="../../static/css/spring-core.css"-->
+<!--          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>-->
 </head>
 <body>
 <div class="container">
@@ -27,7 +27,7 @@
                 <p th:text="#{form.hasErrors}">Error Message</p>
             </div>
 
-            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{_id}"/>
 
             <div class="form-group" th:class="${#fields.hasErrors('description')} ? 'form-group has-error' : 'form-group'">
                 <label class="col-sm-2 control-label">Description:</label>
