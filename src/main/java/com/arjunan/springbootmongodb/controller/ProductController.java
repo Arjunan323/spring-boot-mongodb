@@ -57,5 +57,13 @@ public class ProductController {
         return "product/show";
     }
 
+    @RequestMapping("/product/edit/{id}")
+    public String edit(@PathVariable String id , Model model){
+        Product product = productService.getById(id);
+        ProductDto productDto = productMapper.productToProductDto(product);
+
+        model.addAttribute("productForm", productDto);
+        return "product/productForm";
+    }
 
 }

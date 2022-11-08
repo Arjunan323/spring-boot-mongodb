@@ -27,7 +27,7 @@
                 <p th:text="#{form.hasErrors}">Error Message</p>
             </div>
 
-            <input type="hidden" th:field="*{_id}"/>
+            <input type="hidden" th:field="*{id}"/>
 
             <div class="form-group" th:class="${#fields.hasErrors('description')} ? 'form-group has-error' : 'form-group'">
                 <label class="col-sm-2 control-label">Description:</label>
