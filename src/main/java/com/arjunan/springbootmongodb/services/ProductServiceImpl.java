@@ -51,4 +51,12 @@ public class ProductServiceImpl implements  ProductService{
     public Product getById(String id) {
         return productRepository.findById(new ObjectId(id)).orElseThrow(() -> new IllegalArgumentException("product not found"));
     }
+
+    /**
+     * @param id product Id
+     */
+    @Override
+    public void delete(String id) {
+        productRepository.deleteById(new ObjectId(id));
+    }
 }

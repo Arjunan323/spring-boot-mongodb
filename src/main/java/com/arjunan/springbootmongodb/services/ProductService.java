@@ -13,4 +13,6 @@ public interface ProductService {
     Product saveOrUpdate(Product product);
 
     Product getById(String id);
+
+    void delete(String id);
 }
